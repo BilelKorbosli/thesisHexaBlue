@@ -1,11 +1,11 @@
 node('nodejs') {
 	stage('install brunch') {
       steps {
-        sh 'npm install -g brunch'
+        sh 'npm install brunch'
       }
     }
-  stage 'build'
+  /*stage 'build'
   openshiftBuild(buildConfig: 'nodejs', showBuildLogs: 'true')
   stage 'deploy'
-  openshiftDeploy(deploymentConfig: 'nodejs')
+  openshiftDeploy(deploymentConfig: 'nodejs')*/
 }
