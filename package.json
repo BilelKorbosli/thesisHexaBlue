@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start": "brunch watch --server",
-    "postinstall": "brunch build  --production"
+    "start": "brunch watch --server"
   },
   "main": "server.js",
   "name": "HexagonJS",
