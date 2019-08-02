@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "brunch watch --server"
+    "start": "brunch watch --server",
+    "postinstall": "brunch build --optimize"
   },
   "main": "server.js",
   "name": "HexagonJS",
@@ -16,7 +17,9 @@
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
     "stylus-brunch": ">= 1.8",
-    "uglify-js-brunch": ">= 1.0 < 1.9"
+    "uglify-js-brunch": ">= 1.0 < 1.9",
+    "statik": ">= 1.1.0", 
+    "brunch": "1.x"
   },
   "devDependencies": {
     "coffee-script-brunch": "^3.0.0"
