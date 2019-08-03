@@ -1,1 +1,2 @@
-web: node server.js
+web: npm install brunch -g
+web: brunch watch --server

@@ -14,16 +14,16 @@
   "dependencies": {
     "assetsmanager-brunch": "^1.8.1",
     "auto-reload-brunch": ">= 1.0 < 1.9",
+    "brunch": "^2.10.17",
     "clean-css-brunch": ">= 1.0 < 1.9",
+    "coffee-script-brunch": "^3.0.0",
     "css-brunch": ">= 1.0 < 1.9",
     "javascript-brunch": ">= 1.0 < 1.9",
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
+    "statik": ">= 1.1.0",
     "stylus-brunch": ">= 1.8",
-    "uglify-js-brunch": ">= 1.0 < 1.9",
-    "statik": ">= 1.1.0", 
-    "brunch": "1.x",
-    "coffee-script-brunch": "^3.0.0"
+    "uglify-js-brunch": ">= 1.0 < 1.9"
   },
   "devDependencies": {
     "coffee-script-brunch": "^3.0.0"
