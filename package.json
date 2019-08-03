@@ -4,14 +4,12 @@
   "description": "A JavaScript clone of Super Hexagon",
   "author": "Schlipak",
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Schlipak/Hexagon.js.git"
-  },
   "scripts": {
-    "start": "brunch watch --server"
+    "start": "node server.js",
+    "postinstall": "./node_modules/brunch/bin/brunch build"
   },
   "dependencies": {
+    "express": "~4.13.x",
     "assetsmanager-brunch": "^1.8.1",
     "auto-reload-brunch": ">= 1.0 < 1.9",
     "brunch": "^2.10.17",
