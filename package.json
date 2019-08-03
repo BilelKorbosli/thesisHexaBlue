@@ -1,13 +1,16 @@
 {
-  "scripts": {
-     "start": "node server.js",
-    "postinstall": "brunch build --production"
-  },
   "main": "server.js",
   "name": "HexagonJS",
   "description": "A JavaScript clone of Super Hexagon",
   "author": "Schlipak",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Schlipak/Hexagon.js.git"
+  },
+  "scripts": {
+    "start": "brunch watch --server"
+  },
   "dependencies": {
     "assetsmanager-brunch": "^1.8.1",
     "auto-reload-brunch": ">= 1.0 < 1.9",
