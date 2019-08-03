@@ -341,7 +341,7 @@ module.exports = Hexagon = (function() {
 			//var adapted_closest_wall = closest_walls.map((cell)=>(Math.round((closest_distance*cell)/25)));
 			//var adapted_closest_wall = adapted_closest_wall.map((cell)=>(cell===0 ? -1 : cell));
 			//var IS = adapted_closest_wall.concat([this.cursor.getCoord()["a"]]);
-			var adapted_closest_wall = closest_walls.map((cell)=>(Math.round(cell*closest_distance)));
+			var adapted_closest_wall = closest_walls.map(function(cell){return Math.round(cell*closest_distance)});
 			var IS =[];
 			var cursorPos = parseInt(this.cursor.getCoord()["a"]/60);
 			var leftPos = this._formatAngle((cursorPos-1),0,5);
