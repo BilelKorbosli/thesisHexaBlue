@@ -251,7 +251,9 @@ module.exports = Hexagon = (function() {
 		//add by bilel
 		this._formatAngle = function(angle,min_degree,max_degree) 
 		{
-			return (angle<min_degree) ? max_degree+angle+1 : (angle%max_degree);
+			if (angle<min_degree){ return max_degree+angle+1;}
+			else if (angle>max_degree) {return angle%max_degree-1;}
+			else{return angle;}
 		}	
 		var _update = function() {
 			if (_frameCount >= (this.timer.ending * 60) && _frameCount <= ((this.timer.ending + .3) * 60)) {
@@ -320,7 +322,6 @@ module.exports = Hexagon = (function() {
 
 
 			// ADD by bilel
-
 			var closest_walls = this.walls[0].walls;
 			var closest_distance = this.walls[0].distance;
 
@@ -341,20 +342,23 @@ module.exports = Hexagon = (function() {
 			//var adapted_closest_wall = closest_walls.map((cell)=>(Math.round((closest_distance*cell)/25)));
 			//var adapted_closest_wall = adapted_closest_wall.map((cell)=>(cell===0 ? -1 : cell));
 			//var IS = adapted_closest_wall.concat([this.cursor.getCoord()["a"]]);
-			var adapted_closest_wall = closest_walls.map(function(cell){return Math.round(cell*closest_distance)});
+			var adapted_closest_wall = closest_walls.map(function(cell){ return (cell)? Math.round(cell*closest_distance):1000});
 			var IS =[];
 			var cursorPos = parseInt(this.cursor.getCoord()["a"]/60);
-			var leftPos = this._formatAngle((cursorPos-1),0,5);
-			var rightPos = this._formatAngle(cursorPos+1,0,5);
-			console.log(closest_walls);
-			IS.push(parseInt(adapted_closest_wall[leftPos]/25));
-			IS.push(parseInt(adapted_closest_wall[cursorPos]/25));
-			IS.push(parseInt(adapted_closest_wall[rightPos]/25));
+			//var leftPos = this._formatAngle((cursorPos-1),0,5);
+			//var rightPos = this._formatAngle(cursorPos+1,0,5);
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-3),0,5)]));
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-2),0,5)]));
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-1),0,5)]));
+			IS.push(parseInt(adapted_closest_wall[cursorPos]));
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+1,0,5)]));
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+2,0,5)]));
+			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+3,0,5)]));
 
 			//IS.push(this.cursor.getCoord()["a"]);
 			//var IS = [adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/61)],parseInt((adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/60)])*closest_distance/25),this.cursor.getCoord()["a"]]
 			//if(_isDead){alert('dead')}
-			console.log(IS);
+			console.log(_isDead);
 			window.inputData = { 
 				coord:this.cursor.getCoord(),
 				isDead:_isDead,
@@ -362,13 +366,6 @@ module.exports = Hexagon = (function() {
 				walls:adapted_closest_wall,
 				currentWall:closest_walls,
 				inputSystem:IS
-				/*walls:[
-						{walls:this.walls[0].walls, distance:this.walls[0].distance},
-						{walls:this.walls[1].walls, distance:this.walls[1].distance},
-						{walls:this.walls[2].walls, distance:this.walls[2].distance},
-						{walls:this.walls[3].walls, distance:this.walls[3].distance}
-					]*/
-
 			};
 			console.log(window.inputData.inputSystem);
 			//alert();
