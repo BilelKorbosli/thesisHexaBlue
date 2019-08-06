@@ -1,11 +1,9 @@
 {
-<<<<<<< Updated upstream
-=======
+
   "scripts": {
     "start": "node server.js",
     "postinstall": "brunch build --production"
   },
->>>>>>> Stashed changes
   "main": "server.js",
   "name": "HexagonJS",
   "description": "A JavaScript clone of Super Hexagon",
@@ -19,11 +17,7 @@
     "express": "~4.13.x",
     "assetsmanager-brunch": "^1.8.1",
     "auto-reload-brunch": ">= 1.0 < 1.9",
-<<<<<<< Updated upstream
     "brunch": "^2.10.17",
-=======
-    "brunch": "^1.8.5",
->>>>>>> Stashed changes
     "clean-css-brunch": ">= 1.0 < 1.9",
     "coffee-script-brunch": "^3.0.0",
     "css-brunch": ">= 1.0 < 1.9",
