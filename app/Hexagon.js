@@ -359,6 +359,7 @@ module.exports = Hexagon = (function() {
 			//var IS = [adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/61)],parseInt((adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/60)])*closest_distance/25),this.cursor.getCoord()["a"]]
 			//if(_isDead){alert('dead')}
 			console.log(_isDead);
+
 			window.inputData = { 
 				coord:this.cursor.getCoord(),
 				isDead:_isDead,
