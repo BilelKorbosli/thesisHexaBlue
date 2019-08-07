@@ -351,7 +351,7 @@ module.exports = Hexagon = (function() {
 			//IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-3),0,5)]));
 			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-2),0,5)]));
 			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-1),0,5)]));
-			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos),,0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos),0,5)]));
 			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+1,0,5)]));
 			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+2,0,5)]));
 			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+3,0,5)]));
