@@ -343,17 +343,18 @@ module.exports = Hexagon = (function() {
 			//var adapted_closest_wall = adapted_closest_wall.map((cell)=>(cell===0 ? -1 : cell));
 			//var IS = adapted_closest_wall.concat([this.cursor.getCoord()["a"]]);
 			var adapted_closest_wall = closest_walls.map(function(cell){ return (cell)? Math.round(cell*closest_distance):1000});
+			var adapted_closest_wall_1_0 = closest_walls.map(function(cell){ return  Math.round(cell*1)});
 			var IS =[];
 			var cursorPos = parseInt(this.cursor.getCoord()["a"]/60);
 			//var leftPos = this._formatAngle((cursorPos-1),0,5);
 			//var rightPos = this._formatAngle(cursorPos+1,0,5);
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-3),0,5)]));
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-2),0,5)]));
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle((cursorPos-1),0,5)]));
-			IS.push(parseInt(adapted_closest_wall[cursorPos]));
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+1,0,5)]));
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+2,0,5)]));
-			IS.push(parseInt(adapted_closest_wall[this._formatAngle(cursorPos+3,0,5)]));
+			//IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-3),0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-2),0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle((cursorPos-1),0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[cursorPos]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+1,0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+2,0,5)]));
+			IS.push(parseInt(adapted_closest_wall_1_0[this._formatAngle(cursorPos+3,0,5)]));
 
 			//IS.push(this.cursor.getCoord()["a"]);
 			//var IS = [adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/61)],parseInt((adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/60)])*closest_distance/25),this.cursor.getCoord()["a"]]
