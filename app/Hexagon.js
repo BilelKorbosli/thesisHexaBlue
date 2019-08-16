@@ -378,12 +378,6 @@ module.exports = Hexagon = (function() {
 			console.log(window.inputData.steps);
 			//alert();
 
-			if(parseInt(this.timer.timeText.innerHTML.replace(':',''))>200){
-				//await this._sleep(6000);
-				
-					await this._sleep(5);
-			
-			}
 			
 			if (_isDead)
 			return this.die();
