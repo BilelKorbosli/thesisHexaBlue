@@ -29,7 +29,7 @@ module.exports = Hexagon = (function() {
 		var _backgroundColors = this.backgroundColors;
 		this.wallColors = ["#FFFFFF", "#FFFFFF"];
 		var _wallColors = this.wallColors;
-		this.wallSpeed = 5;
+		this.wallSpeed = 1;
 		this.rotationChance = 5;
 		this.rotationFrequency = 5;
 
@@ -82,7 +82,7 @@ module.exports = Hexagon = (function() {
 
 		for (var i = 0; i < this.walls.length; i++) {
 			this.walls[i] = new Wall({
-				distance: this.minDist + ((this.minDist / 3) * (i + 1))
+				distance: this.minDist + (10*i)+ ((this.minDist / 3) * (i + 1))
 			});
 			this.walls[i].generatePattern();
 		};
@@ -133,7 +133,7 @@ module.exports = Hexagon = (function() {
 		this.play = function() {
 			var _this = this;
 			_isDead = false;
-			document.onkeydown = function(event) {
+			document.onkeypress = function(event) {
 				var key = event.which || event.keyCode;
 				if (key == 27)
 				_isDead = true;
@@ -142,24 +142,25 @@ module.exports = Hexagon = (function() {
 			document.onkeyup = function(event) {
 				_this.stopCursor(event);
 			}
-			this.audio_start.play();
+			/*this.audio_start.play();
 			setTimeout(function() {
 				if (this.audio_bgm && this.audio_bgm.paused)
 					this.audio_bgm.play();
-			}.bind(this), 200);
+			}.bind(this), 200);*/
 			this.canvas.classList.add('playing');
 			_animation_id_ = requestAnimationFrame(_update.bind(this))
 		};
 
 		this.moveCursor = function(event) {
 			var key = event.which || event.keyCode;
-			if (key == 39)
+			if (key == 51)
 			this.cursor.dir = 1;
-			else if (key == 37)
+			else if (key == 49)
 			this.cursor.dir = -1;
 		}
 
 		this.stopCursor = function(event) {
+			this.cursor.dir = 0;
 			var key = event.which || event.keyCode;
 			if ((key == 39 && this.cursor.dir == 1) || (key == 37 && this.cursor.dir == -1))
 			this.cursor.dir = 0;
@@ -254,8 +255,12 @@ module.exports = Hexagon = (function() {
 			if (angle<min_degree){ return max_degree+angle+1;}
 			else if (angle>max_degree) {return angle%max_degree-1;}
 			else{return angle;}
-		}	
-		var _update = function() {
+		}
+		this._sleep = async function(ms) {
+		  return new Promise(resolve => setTimeout(resolve, ms));
+		}
+
+		var _update = async function() {
 			if (_frameCount >= (this.timer.ending * 60) && _frameCount <= ((this.timer.ending + .3) * 60)) {
 				if (_frameCount == (this.timer.ending * 60) && typeof this.args.ending === 'string') {
 					this.audio_bgm.pause();
@@ -286,12 +291,12 @@ module.exports = Hexagon = (function() {
 			if (((_frameCount + _frameCount_levelUp) % (this.rotationFrequency * 60) == 0) && (Math.floor(Math.random() * 100)) < this.rotationChance)
 			this.angleSpeed *= -1;
 
-			if (this.audio_bgm) {
+			/*if (this.audio_bgm) {
 				_analyser_.getByteFrequencyData(_audio_data_);
 				var __TEMP__ = _audio_data_.slice(_chunk_size_, _chunk_size_ * 2);
 				_offset_ = (Utils.arrayAvg(__TEMP__) / 2);
 			}
-
+*/
 			this.ctx.fillStyle = this.currentBGC[COLOR_DARK];
 			this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 			this.ctx.translate(this.canvas.width / 2, this.canvas.height / 2);
@@ -359,7 +364,6 @@ module.exports = Hexagon = (function() {
 			//IS.push(this.cursor.getCoord()["a"]);
 			//var IS = [adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/61)],parseInt((adapted_closest_wall[parseInt(this.cursor.getCoord()["a"]/60)])*closest_distance/25),this.cursor.getCoord()["a"]]
 			//if(_isDead){alert('dead')}
-			console.log(_isDead);
 
 			window.inputData = { 
 				coord:this.cursor.getCoord(),
@@ -367,11 +371,20 @@ module.exports = Hexagon = (function() {
 				timer:parseInt(this.timer.timeText.innerHTML.replace(':','')),
 				walls:adapted_closest_wall,
 				currentWall:closest_walls,
-				inputSystem:IS
+				inputSystem:IS,
+				steps: false
 			};
-			console.log(window.inputData.inputSystem);
+			
+			console.log(window.inputData.steps);
 			//alert();
 
+			if(parseInt(this.timer.timeText.innerHTML.replace(':',''))>200){
+				//await this._sleep(6000);
+				
+					await this._sleep(5);
+			
+			}
+			
 			if (_isDead)
 			return this.die();
 

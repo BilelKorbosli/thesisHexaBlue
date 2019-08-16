@@ -4,7 +4,7 @@
 		"backgroundColors": [["#0D0A24", "#150d32"], ["#2a0736", "#1b0722"]],
 		"cursorSpeed": 8,
 		"wallColors": ["#9229da", "#3e57da"],
-		"wallSpeed": 5,
+		"wallSpeed": 20,
 		"rotationChance": 20,
 		"rotationFrequency": 3,
 		"music": "audio/lde007.ogg",
@@ -23,7 +23,7 @@
 		{
 			"time": 22,
 			"angleSpeed": 2.3,
-			"wallSpeed": 8,
+			"wallSpeed": 80,
 			"rotationChance": 80,
 			"backgroundColors": [["#330A04", "#380A04"], ["#6C1305", "#741405"]],
 			"wallColors": ["#B32900", "#EFAC41"]

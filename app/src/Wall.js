@@ -4,8 +4,8 @@ var Wall;
 
 module.exports = Wall = (function() {
 	function Wall(args) {
-		this.walls = [false, false, false, false, false, false];
-		this.distance = args.distance || 250;
+		this.walls = [false, false, true, false, false, false];
+		this.distance = args.distance || 50;
 		this.width = args.width || 50;
 
 		var _patterns_ = [];

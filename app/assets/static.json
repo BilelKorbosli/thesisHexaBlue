@@ -4,7 +4,7 @@
 		"backgroundColors": [["#000000", "#000000"], ["#000000", "#000000"]],
 		"cursorSpeed": 7,
 		"wallColors": ["#FFFFFF", "#FFFFFF"],
-		"wallSpeed": 0,
+		"wallSpeed": 20,
 		"music": "audio/shadows.ogg",
 		"patterns": [
 			[false, true, true, true, true, true],

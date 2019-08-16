@@ -4,7 +4,7 @@
 		"backgroundColors": [["#1b0602", "#1f0803"], ["#3d0b03", "#390a02"]],
 		"cursorSpeed": 8,
 		"wallColors": ["#6e1a02", "#a87a30"],
-		"wallSpeed": 7,
+		"wallSpeed": 70,
 		"rotationChance": 10,
 		"rotationFrequency": 3,
 		"music": "audio/sentinel.ogg",
@@ -21,7 +21,7 @@
 	"events": [
 		{
 			"time": 13.8,
-			"wallSpeed": 8.5,
+			"wallSpeed": 80.5,
 			"angleSpeed": 2.3,
 			"backgroundColors": [["#330A04", "#380A04"], ["#6C1305", "#741405"]],
 			"wallColors": ["#B32900", "#EFAC41"],

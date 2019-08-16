@@ -17,9 +17,14 @@ module.exports = Cursor = (function() {
 			c_x = (this.canvas.width / 2) + ((this.radius + offset) * Math.cos(this.angle * Math.PI / 180)),
 			c_y = (this.canvas.height / 2) + ((this.radius + offset) * Math.sin(this.angle * Math.PI / 180));
 
-			this.angle = this.angle + (this.dir * this.speed);
-			if (this.angle < 0)
-				this.angle = 360 - this.angle;
+			//this.angle = this.angle + (this.dir * this.speed);
+			this.angle = this.angle + (this.dir * 60);
+			this.dir = 0;
+			//console.log(this.angle);
+			if (this.angle < 0){
+				console.log(this.angle);
+				this.angle = 360 + this.angle;
+			}
 			else if (this.angle > 360)
 				this.angle %= 360;
 			ctx.translate(c_x, c_y);
