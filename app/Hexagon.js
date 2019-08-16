@@ -256,11 +256,8 @@ module.exports = Hexagon = (function() {
 			else if (angle>max_degree) {return angle%max_degree-1;}
 			else{return angle;}
 		}
-		this._sleep = async function(ms) {
-		  return new Promise(resolve => setTimeout(resolve, ms));
-		}
 
-		var _update = async function() {
+		var _update = function() {
 			if (_frameCount >= (this.timer.ending * 60) && _frameCount <= ((this.timer.ending + .3) * 60)) {
 				if (_frameCount == (this.timer.ending * 60) && typeof this.args.ending === 'string') {
 					this.audio_bgm.pause();
